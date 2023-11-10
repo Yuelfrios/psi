@@ -4,7 +4,7 @@
 # ¨[numeroDeEnvio[Ñ[5000912194[,[numeroDeBulto[Ñ[20407008416215000912194001[,[cantidadDeBultos[Ñ[1[,[sucursalDeDistribucion[Ñ¨[nomenclatura[Ñ[070[,[descripcion[Ñ [BENAVIDEZ ' C DISTRIBUCION[,[id[Ñ[70[**
 # G99999005835070
 # 360000593775580
-
+# made in niquillo
 from tkinter import *
 from tkinter import ttk
 
