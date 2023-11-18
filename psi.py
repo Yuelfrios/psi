@@ -31,8 +31,10 @@ def envio (event):
     #------------------------front---------------------------
     codigo = entrada_de_codigo.get()
     entrada_de_codigo.bind('<Return>', entrada_de_codigo.delete(0, END))#eliminamos lo escrito al tocar enter
-    #ingresar codigo en imagen
+    #ingresar codigo en imagen y borra espacios vacias
 
+    if ' ' in codigo:
+        codigo = codigo.replace(' ', '')
     #backend ----------------------Reconocimiento---------------------------------
     if codigo.startswith("215") and len(codigo) == 26:
         tabla.insert(END,codigo) #muestra si es un code_correo
