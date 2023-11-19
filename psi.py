@@ -7,11 +7,11 @@
 # made in niquillo
 from tkinter import *
 from tkinter import ttk
-
-
+import pandas as pd
+import os
 #ventana
 ventana = Tk()
-ventana.title("Psi")
+ventana.title("Psi by nlara")
 ventana.geometry("450x900+0+10")
 
 #contador de pallet
@@ -68,6 +68,14 @@ def borrar(event):
 
 tabla.bind('<Delete>',borrar)
 
+def exportar(event):
+    datos =[tabla.get(i) for i in range(tabla.size())]
+    sin_duplicar = set(datos)
+    df = pd.DataFrame(sin_duplicar, columns = ['envios'])
+    escritorio = os.path.join(os.path.expanduser("~"), "Desktop")
+    df.to_csv(os.path.join(escritorio, 'psi_envios.csv'),index=False)
 
+
+ventana.bind('<F12>',exportar)
 
 ventana.mainloop()
