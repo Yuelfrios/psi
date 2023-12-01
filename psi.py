@@ -5,10 +5,9 @@
 # G99999005835070
 # 360000593775580
 # made in niquillo
-from tkinter import *
-from tkinter import ttk
-import pandas as pd
-import os
+from tkinter import Tk,Entry,Listbox,END
+from pandas import DataFrame
+from os import path
 #ventana
 ventana = Tk()
 ventana.title("Psi by nlara")
@@ -68,12 +67,13 @@ def borrar(event):
 
 tabla.bind('<Delete>',borrar)
 
+#linea para exportar en .csv
 def exportar(event):
     datos =[tabla.get(i) for i in range(tabla.size())]
     sin_duplicar = set(datos)
-    df = pd.DataFrame(sin_duplicar, columns = ['envios'])
-    escritorio = os.path.join(os.path.expanduser("~"), "Desktop")
-    df.to_csv(os.path.join(escritorio, 'psi_envios.csv'),index=False)
+    df = DataFrame(sin_duplicar, columns = ['envios'])
+    escritorio = path.join(path.expanduser("~"), "Desktop")
+    df.to_csv(path.join(escritorio, 'psi_envios.csv'),index=False)
 
 
 ventana.bind('<F12>',exportar)
