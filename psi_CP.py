@@ -90,14 +90,12 @@ def envio (event):
     elif codigo == '123123123':
         tabla.insert(END,f'Pallet n° {pallet}')
         tabla2.insert(END,'\n')
-        tabla3.insert(END, '\n')
         tabla.itemconfig(END, bg='black',fg="#fff")#-------------------------------------------------------
         pallet[0] += 1
     else:#ERROR-----------------------------------
         tabla.insert(END,codigo)
         tabla.itemconfig(END, bg='red')
         tabla2.insert(END,'\n')
-        tabla3.insert(END, '\n')
 
         
 
@@ -106,12 +104,15 @@ entrada_de_codigo.bind('<Return>', envio)
 
 
 def repeticion (repeticion): #control de la tabla3
-    items = tabla.get(0, END)
-    for item in items:
-        if item == repeticion:
-            tabla3.insert(END,abecedario[0])
-            contador_de_letras =+1
-            return tabla.itemconfig(END, bg='yellow')
+    if entrada_de_codigo.get() == '123123123':
+        tabla3.insert(END, '\n')
+    else:
+        items = tabla.get(0, END)
+        for item in items:
+            if item == repeticion:
+                tabla3.insert(END,abecedario[0])
+                contador_de_letras =+1
+                return tabla.itemconfig(END, bg='yellow')
 
 
 #borrar con suprimir
