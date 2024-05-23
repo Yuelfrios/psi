@@ -156,7 +156,7 @@ def exportar(event):
     datos =[tabla.get(i) for i in range(tabla.size())]
     sin_duplicar = set(datos)
     df = DataFrame(sin_duplicar, columns = ['envios'])
-    escritorio = path.join(path.expanduser("~"), "Desktop")
+    escritorio = path.join(path.expanduser("~"))
     df.to_csv(path.join(escritorio, 'psi_envios.csv'),index=False)
 
 
