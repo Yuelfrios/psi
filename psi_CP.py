@@ -10,7 +10,7 @@ from pandas import DataFrame,read_excel
 from os import path
 #ventana
 ventana = Tk()
-ventana.title("Psi by nlara")
+ventana.title("Psi_CP by nlara")
 ventana.geometry("550x900+0+10")
 
 
